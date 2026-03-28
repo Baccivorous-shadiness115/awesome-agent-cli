@@ -249,20 +249,4 @@ Services without a good agent CLI yet: Jira, Confluence, Asana, Trello, Todoist,
 
 ---
 
-## Contributing
 
-Open a PR. Must be a CLI/app for agent use with its own repo link. Add a row to the category table.
-
-Star badge: `![](https://img.shields.io/github/stars/OWNER/REPO?style=flat-square&label=)`
-
-Tag badges use reference links defined at the top. Example: `![official][official] ![agent-first][agent-first]`
-
-## License
-
-[CC0 1.0 Universal](LICENSE) -- public domain. Individual tools have their own licenses.
-
----
-
-<p align="center">
-  Curated by <a href="https://github.com/shuyhere">@shuyhere</a>
-</p>
