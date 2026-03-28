@@ -25,25 +25,6 @@ CLI tools built for **AI agents** (Claude Code, OpenClaw, Codex, Gemini CLI, Cur
 
 ---
 
-<!-- badge references -->
-[official]: https://img.shields.io/badge/official-0969DA?style=flat-square
-[community]: https://img.shields.io/badge/community-2DA44E?style=flat-square
-[agent-first]: https://img.shields.io/badge/agent--first-8250DF?style=flat-square
-[agent-friendly]: https://img.shields.io/badge/agent--friendly-BF8BFF?style=flat-square
-[research]: https://img.shields.io/badge/research-1F6FEB?style=flat-square
-[productivity]: https://img.shields.io/badge/productivity-E16F24?style=flat-square
-[project-mgmt]: https://img.shields.io/badge/project--mgmt-CF222E?style=flat-square
-[knowledge]: https://img.shields.io/badge/knowledge-0E8A16?style=flat-square
-[messaging]: https://img.shields.io/badge/messaging-1A7F37?style=flat-square
-[social]: https://img.shields.io/badge/social-D4A72C?style=flat-square
-[dev-tools]: https://img.shields.io/badge/dev--tools-343B42?style=flat-square
-[browser]: https://img.shields.io/badge/browser-0550AE?style=flat-square
-[agent-app]: https://img.shields.io/badge/agent--app-A475F9?style=flat-square
-[bridge]: https://img.shields.io/badge/bridge-DA3633?style=flat-square
-[markdown]: https://img.shields.io/badge/markdown-57606A?style=flat-square
-[batch-ops]: https://img.shields.io/badge/batch--ops-E3B341?style=flat-square
-[token-efficient]: https://img.shields.io/badge/token--efficient-2DA44E?style=flat-square
-
 ---
 
 ## Productivity Suites
@@ -235,6 +216,23 @@ CLI tools built for **AI agents** (Claude Code, OpenClaw, Codex, Gemini CLI, Cur
 
 Services without a good agent CLI yet: Jira, Confluence, Asana, Trello, Todoist, Airtable, Figma, Zoom, HuggingFace (agent-optimized).
 
----
+<!-- badge reference links (must be at end of file) -->
+[official]: https://img.shields.io/badge/official-0969DA?style=flat-square
+[community]: https://img.shields.io/badge/community-2DA44E?style=flat-square
+[agent-first]: https://img.shields.io/badge/agent--first-8250DF?style=flat-square
+[agent-friendly]: https://img.shields.io/badge/agent--friendly-BF8BFF?style=flat-square
+[research]: https://img.shields.io/badge/research-1F6FEB?style=flat-square
+[productivity]: https://img.shields.io/badge/productivity-E16F24?style=flat-square
+[project-mgmt]: https://img.shields.io/badge/project--mgmt-CF222E?style=flat-square
+[knowledge]: https://img.shields.io/badge/knowledge-0E8A16?style=flat-square
+[messaging]: https://img.shields.io/badge/messaging-1A7F37?style=flat-square
+[social]: https://img.shields.io/badge/social-D4A72C?style=flat-square
+[dev-tools]: https://img.shields.io/badge/dev--tools-343B42?style=flat-square
+[browser]: https://img.shields.io/badge/browser-0550AE?style=flat-square
+[agent-app]: https://img.shields.io/badge/agent--app-A475F9?style=flat-square
+[bridge]: https://img.shields.io/badge/bridge-DA3633?style=flat-square
+[markdown]: https://img.shields.io/badge/markdown-57606A?style=flat-square
+[batch-ops]: https://img.shields.io/badge/batch--ops-E3B341?style=flat-square
+[token-efficient]: https://img.shields.io/badge/token--efficient-2DA44E?style=flat-square
 
 
