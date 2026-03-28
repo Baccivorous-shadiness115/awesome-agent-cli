@@ -25,8 +25,6 @@ CLI tools built for **AI agents** (Claude Code, OpenClaw, Codex, Gemini CLI, Cur
 
 ---
 
-## Tags
-
 <!-- badge references -->
 [official]: https://img.shields.io/badge/official-0969DA?style=flat-square
 [community]: https://img.shields.io/badge/community-2DA44E?style=flat-square
@@ -45,16 +43,6 @@ CLI tools built for **AI agents** (Claude Code, OpenClaw, Codex, Gemini CLI, Cur
 [markdown]: https://img.shields.io/badge/markdown-57606A?style=flat-square
 [batch-ops]: https://img.shields.io/badge/batch--ops-E3B341?style=flat-square
 [token-efficient]: https://img.shields.io/badge/token--efficient-2DA44E?style=flat-square
-
-![official][official] platform vendor &nbsp; ![community][community] community maintained &nbsp; ![agent-first][agent-first] designed for agents &nbsp; ![agent-friendly][agent-friendly] works well with agents
-
-![research][research] academic workflows &nbsp; ![productivity][productivity] workplace tools &nbsp; ![project-mgmt][project-mgmt] issue tracking &nbsp; ![knowledge][knowledge] notes, wikis
-
-![messaging][messaging] chat platforms &nbsp; ![social][social] social media &nbsp; ![dev-tools][dev-tools] developer tools &nbsp; ![browser][browser] web automation
-
-![agent-app][agent-app] application for agents &nbsp; ![bridge][bridge] agent-to-platform connector &nbsp; ![markdown][markdown] markdown support
-
-![batch-ops][batch-ops] batch operations &nbsp; ![token-efficient][token-efficient] minimal token usage
 
 ---
 
