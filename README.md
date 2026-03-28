@@ -1,248 +1,240 @@
-<p align="center">
-  <h1 align="center">Awesome Agent CLI</h1>
-  <p align="center">
-    <em>A curated collection of CLI tools and applications designed for AI agents.</em>
-  </p>
-  <p align="center">
-    <a href="#productivity-suites">Productivity</a> &middot;
-    <a href="#project-management">Project Mgmt</a> &middot;
-    <a href="#knowledge--docs">Knowledge</a> &middot;
-    <a href="#research--academic">Research</a> &middot;
-    <a href="#email">Email</a> &middot;
-    <a href="#social--messaging">Social</a> &middot;
-    <a href="#developer-tools">Dev Tools</a> &middot;
-    <a href="#browser--web-automation">Browser</a> &middot;
-    <a href="#agent-applications">Agent Apps</a> &middot;
-    <a href="#agent-bridges">Bridges</a>
-  </p>
-</p>
+# Awesome Agent CLI
 
----
+> A curated collection of CLI tools and applications designed for AI agents — classified by domain, with tags, install commands, and auto-updating star counts.
+
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/shuyhere/awesome-agent-cli/pulls)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## What is an "Agent CLI"?
 
-A new wave of command-line tools built specifically for **AI agents** (Claude Code, OpenClaw, Codex, Gemini CLI, Cursor, etc.) to interact with external services. Instead of raw REST APIs or bloated MCP servers, agent CLIs provide:
+An **Agent CLI** is a command-line tool specifically designed (or well-suited) for use by AI agents. Key characteristics:
 
-- **Structured JSON output** -- machine-parseable by default
-- **Shell-composable commands** -- pipe, batch, combine
-- **Safety features** -- `--dry-run`, input sanitization, scoped auth
-- **Token-efficient** -- compact output for minimal context usage
+- **Structured output** — JSON/NDJSON responses parseable by LLMs
+- **Headless auth** — OAuth device flow or token-based auth (no browser required)
+- **Dry-run support** — Preview destructive operations before execution
+- **Auto-pagination** — Stream large datasets without manual page management
+- **Discovery-driven** — Auto-generated commands from API specs
 
-This repo classifies and tags every known agent-friendly CLI so you can find the right tool for your agent stack.
+## Table of Contents
 
----
-
-## Tags Legend
-
-| Tag | Meaning |
-|-----|---------|
-| `official` | Maintained by the platform vendor |
-| `community` | Community-maintained |
-| `agent-first` | Designed primarily for AI agents |
-| `agent-friendly` | Works well with agents but not exclusively designed for them |
-| `research` | Academic / research workflows |
-| `productivity` | Workplace productivity (docs, calendar, email) |
-| `project-mgmt` | Project and issue tracking |
-| `knowledge` | Knowledge bases, wikis, notes |
-| `messaging` | Chat and messaging platforms |
-| `social` | Social media platforms |
-| `dev-tools` | Developer-focused tools |
-| `browser` | Web browsing and automation |
-| `agent-app` | Full application designed for agent use |
-| `bridge` | Connects agents to messaging platforms |
-| `markdown` | Strong Markdown support / conversion |
-| `batch-ops` | Supports batch operations for fewer tool calls |
-| `token-efficient` | Specifically optimized for minimal token usage |
+- [Workspace and Productivity Suites](#workspace-and-productivity-suites)
+- [Meta-CLIs and Universal Hubs](#meta-clis-and-universal-hubs)
+- [Research and Academic](#research-and-academic)
+- [Developer Tools](#developer-tools)
+- [Social and Networking](#social-and-networking)
+- [Communication and Email](#communication-and-email)
+- [Note-taking and Knowledge Management](#note-taking-and-knowledge-management)
+- [Browser Automation for Agents](#browser-automation-for-agents)
+- [Smart Home and IoT](#smart-home-and-iot)
+- [Coding Agents](#coding-agents)
+- [Agent Infrastructure](#agent-infrastructure)
+- [Design Patterns](#design-patterns-across-agent-clis)
+- [Tags Reference](#tags-reference)
+- [Contributing](#contributing)
 
 ---
 
-## Productivity Suites
+## Workspace and Productivity Suites
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **gws** | [googleworkspace/cli](https://github.com/googleworkspace/cli) | ![](https://img.shields.io/github/stars/googleworkspace/cli?style=flat-square) | Rust | `official` `agent-first` `productivity` `batch-ops` | One CLI for all of Google Workspace. Dynamic command surface from Discovery Service. Three-layer architecture: shortcuts (`+send`, `+agenda`) -> API methods -> raw API. Schema introspection, NDJSON streaming, encrypted OAuth. Install: `npm i -g @googleworkspace/cli` |
-| **lark-cli** | [larksuite/cli](https://github.com/larksuite/cli) | ![](https://img.shields.io/github/stars/larksuite/cli?style=flat-square) | Go | `official` `agent-first` `productivity` `batch-ops` | Official Lark/Feishu CLI. 200+ commands, 11 domains (Calendar, Messenger, Docs, Drive, Base, Sheets, Tasks, Wiki, Contact, Mail, Meetings). Three-layer commands, non-blocking agent auth (`--no-wait`), schema introspection, `--dry-run`. Install: `npm i -g @larksuite/cli` |
-| **feishu-cli** | [riba2534/feishu-cli](https://github.com/riba2534/feishu-cli) | ![](https://img.shields.io/github/stars/riba2534/feishu-cli?style=flat-square) | Go | `community` `agent-first` `productivity` `markdown` | Community Feishu CLI. Bidirectional lossless Markdown-to-Feishu conversion (40+ block types). Mermaid/PlantUML to editable Feishu Whiteboard. Concurrent pipeline tested at 10,000+ lines. Full platform coverage. Install: `curl -fsSL .../install.sh \| bash` |
-| **Feishu-MCP** | [cso1z/Feishu-MCP](https://github.com/cso1z/Feishu-MCP) | ![](https://img.shields.io/github/stars/cso1z/Feishu-MCP?style=flat-square) | TypeScript | `community` `agent-friendly` `productivity` | Feishu/Lark MCP server + CLI. Integrates with Cursor, Claude Code, Cline. |
+Full SaaS platform CLIs with broad API coverage.
 
----
-
-## Project Management
-
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **linearis** | [czottmann/linearis](https://github.com/czottmann/linearis) | ![](https://img.shields.io/github/stars/czottmann/linearis?style=flat-square) | TypeScript | `community` `agent-first` `project-mgmt` `token-efficient` | Linear.app CLI. JSON output, smart ID resolution (`ABC-123` format). Under 1,000 tokens for agent context (vs ~13k for Linear MCP). Issues, Comments, Documents, Projects, Cycles, Embeds. Install: `npm i -g linearis` |
-| **linctl** | [dorkitude/linctl](https://github.com/dorkitude/linctl) | ![](https://img.shields.io/github/stars/dorkitude/linctl?style=flat-square) | Go | `community` `agent-friendly` `project-mgmt` | Linear CLI built with agents in mind, Cobra framework. |
-| **linear-cli** | [mixpeek/linear-cli](https://github.com/mixpeek/linear-cli) | ![](https://img.shields.io/github/stars/mixpeek/linear-cli?style=flat-square) | TypeScript | `community` `agent-friendly` `project-mgmt` | CLI tool for interacting with Linear.app. |
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [gws](https://github.com/googleworkspace/cli) | ![Stars](https://img.shields.io/github/stars/googleworkspace/cli?style=flat&label=) | `npm i -g @googleworkspace/cli` | Rust | Google Workspace CLI. Dynamically generates commands from Google's Discovery Service — new APIs are picked up automatically. Covers Gmail, Drive, Calendar, Sheets, Docs, Chat, Admin, and 85+ APIs. Ships 100+ agent skills, helper commands (`gws gmail +send`, `gws calendar +agenda`), three auth flows (interactive OAuth, service account, pre-obtained token). | `productivity` `email` `calendar` `docs` `sheets` `drive` `chat` |
+| [lark-cli](https://github.com/larksuite/cli) | ![Stars](https://img.shields.io/github/stars/larksuite/cli?style=flat&label=) | `npm i -g @larksuite/cli` | Go | Official Feishu/Lark CLI from ByteDance. Three-layer architecture: shortcut commands (human+AI friendly), API commands (platform-synced), raw API (2500+ endpoints). 200+ commands covering Messenger, Docs, Base, Sheets, Calendar, Mail, Tasks, Meetings. Supports `--dry-run`, identity switching (`--as user` / `--as bot`), 19 agent skills. | `productivity` `messenger` `docs` `sheets` `calendar` `mail` `tasks` `meetings` `china` |
+| [dws](https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli) | ![Stars](https://img.shields.io/github/stars/DingTalk-Real-AI/dingtalk-workspace-cli?style=flat&label=) | `curl -fsSL .../install.sh \| sh` | Go | Official DingTalk CLI. Uses discovery-driven MCP (Model Context Protocol) JSON-RPC pipeline — commands built from market registry, not hardcoded. Covers Contacts, Calendar, Todo, Attendance, Chat, Approval, Base. Currently in co-creation phase (whitelist required). | `productivity` `contacts` `calendar` `todo` `attendance` `chat` `china` `mcp` |
 
 ---
 
-## Knowledge & Docs
+## Meta-CLIs and Universal Hubs
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **notion-cli-agent** | [Balneario-de-Cofrentes/notion-cli-agent](https://github.com/Balneario-de-Cofrentes/notion-cli-agent) | ![](https://img.shields.io/github/stars/Balneario-de-Cofrentes/notion-cli-agent?style=flat-square) | TypeScript | `community` `agent-first` `knowledge` `batch-ops` `token-efficient` | Notion CLI with `--llm` mode for compact output. Natural language queries (`notion find`), batch operations, workspace auto-discovery, Obsidian sync. Install: `npm i -g notion-cli-agent` |
-| **vibe-notion** | [devxoul/vibe-notion](https://github.com/devxoul/vibe-notion) | ![](https://img.shields.io/github/stars/devxoul/vibe-notion?style=flat-square) | TypeScript | `community` `agent-first` `knowledge` | Notion automation CLI for AI agents. |
-| **notion-cli** | [Coastal-Programs/notion-cli](https://github.com/Coastal-Programs/notion-cli) | ![](https://img.shields.io/github/stars/Coastal-Programs/notion-cli?style=flat-square) | Go | `community` `agent-first` `knowledge` | Enterprise-grade Notion CLI. Advanced retry, caching. |
-| **feishu-docx** | [leemysw/feishu-docx](https://github.com/leemysw/feishu-docx) | ![](https://img.shields.io/github/stars/leemysw/feishu-docx?style=flat-square) | Python | `community` `agent-friendly` `knowledge` `markdown` | Feishu/Lark Docs and Sheets to Markdown with OAuth, CLI, TUI. |
-| **obsidian-export** | [zoni/obsidian-export](https://github.com/zoni/obsidian-export) | ![](https://img.shields.io/github/stars/zoni/obsidian-export?style=flat-square) | Rust | `community` `agent-friendly` `knowledge` `markdown` | Export Obsidian vault to regular Markdown. Resolves wiki-links, embeds, and Obsidian-specific syntax. |
-| **ov** | [sokojh/obsidian-vault](https://github.com/sokojh/obsidian-vault) | ![](https://img.shields.io/github/stars/sokojh/obsidian-vault?style=flat-square) | Rust | `community` `agent-first` `knowledge` | Agent-first CLI for Obsidian vaults. JSON-only output, schema introspection, `--dry-run` safety. |
-| **obs** | [markfive-proto/obsidian-vault-cli](https://github.com/markfive-proto/obsidian-vault-cli) | ![](https://img.shields.io/github/stars/markfive-proto/obsidian-vault-cli?style=flat-square) | TypeScript | `community` `agent-friendly` `knowledge` | Community CLI for Obsidian vaults. 100+ commands for notes, search, tags, links, tasks. |
-| **obsidianRAGsody** | [nicolaischneider/obsidianRAGsody](https://github.com/nicolaischneider/obsidianRAGsody) | ![](https://img.shields.io/github/stars/nicolaischneider/obsidianRAGsody?style=flat-square) | Python | `community` `agent-friendly` `knowledge` | CLI for intelligent Obsidian vault interaction using RAG. Natural language queries, URL-to-markdown conversion. |
+Tools that wrap multiple services or turn arbitrary interfaces into CLIs.
+
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [OpenCLI](https://github.com/jackwener/opencli) | ![Stars](https://img.shields.io/github/stars/jackwener/opencli?style=flat&label=) | `npm i -g @jackwener/opencli` | TypeScript | Turns any website, Electron app, or local CLI into a unified CLI. 65+ site adapters (Bilibili, Twitter/X, Reddit, Xiaohongshu, YouTube). Wraps Electron apps (Cursor, ChatGPT, Notion, Discord) via CDP. Zero LLM cost — deterministic output. Passthrough hub for `gh`, `gws`, `docker` with auto-install. Anti-detection built in. | `meta-cli` `browser` `scraping` `social-media` `electron` `hub` |
+| [x-cmd](https://github.com/x-cmd/x-cmd) | ![Stars](https://img.shields.io/github/stars/x-cmd/x-cmd?style=flat&label=) | `eval "$(curl https://get.x-cmd.com)"` | Awk | Bootstrap 1000+ CLI tools in seconds. Package manager + 100+ functional modules. Provides `llms.txt` manifest for agent discovery. No-sudo, pure awk core engine under 1MB. Great for provisioning agent environments. | `meta-cli` `package-manager` `1000+-tools` `agent-bootstrap` |
 
 ---
 
-## Research & Academic
+## Research and Academic
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **pyoverleaf** | [jkulhanek/pyoverleaf](https://github.com/jkulhanek/pyoverleaf) | ![](https://img.shields.io/github/stars/jkulhanek/pyoverleaf?style=flat-square) | Python | `community` `agent-friendly` `research` `markdown` | Python API and CLI for Overleaf. List/create/archive projects, upload/download files, comments, live changes. Auth via browser cookies. Install: `pip install pyoverleaf` |
-| **olcli** | [aloth/olcli](https://github.com/aloth/olcli) | ![](https://img.shields.io/github/stars/aloth/olcli?style=flat-square) | JavaScript | `community` `agent-friendly` `research` | Overleaf CLI. Sync, manage, and compile LaTeX projects from terminal. |
-| **overleaf-sync-rs** | [katzper-michno/overleaf-sync-rs](https://github.com/katzper-michno/overleaf-sync-rs) | ![](https://img.shields.io/github/stars/katzper-michno/overleaf-sync-rs?style=flat-square) | Rust | `community` `agent-friendly` `research` | Bidirectional sync between Overleaf and local filesystem. |
-| **overleap** | [Axect/overleap](https://github.com/Axect/overleap) | ![](https://img.shields.io/github/stars/Axect/overleap?style=flat-square) | JavaScript | `community` `agent-friendly` `research` | Real-time bidirectional Overleaf sync. Leap over the browser. |
-| **LeafLink** | [xiongqi123123/LeafLink](https://github.com/xiongqi123123/LeafLink) | ![](https://img.shields.io/github/stars/xiongqi123123/LeafLink?style=flat-square) | Python | `community` `agent-friendly` `research` | Lightweight Overleaf sync CLI. Pull/push workflows, pseudo real-time collaboration. |
-| **overleaf-cli** | [BruceChenSF/overleaf-cli](https://github.com/BruceChenSF/overleaf-cli) | ![](https://img.shields.io/github/stars/BruceChenSF/overleaf-cli?style=flat-square) | TypeScript | `community` `agent-first` `research` | Enable AI tools (Claude Code, Cursor) to directly edit Overleaf projects via local file sync. |
-| **pubtab** | [Galaxy-Dawn/pubtab](https://github.com/Galaxy-Dawn/pubtab) | ![](https://img.shields.io/github/stars/Galaxy-Dawn/pubtab?style=flat-square) | Python | `community` `agent-friendly` `research` | Bidirectional Excel-to-LaTeX table converter with style-preserving roundtrip and PNG/PDF preview. |
-| **xiv** | [james-akl/xiv](https://github.com/james-akl/xiv) | ![](https://img.shields.io/github/stars/james-akl/xiv?style=flat-square) | Python | `community` `agent-friendly` `research` | Minimal arXiv search and download CLI. |
-| **Research-Paper-Extractor** | [Sreeram5678/Research-Paper-Extractor](https://github.com/Sreeram5678/Research-Paper-Extractor) | ![](https://img.shields.io/github/stars/Sreeram5678/Research-Paper-Extractor?style=flat-square) | Python | `community` `agent-friendly` `research` | Automated arXiv paper search and download. Search by keywords, authors, categories. |
-| **rSearch** | [jscraik/rSearch](https://github.com/jscraik/rSearch) | ![](https://img.shields.io/github/stars/jscraik/rSearch?style=flat-square) | TypeScript | `community` `agent-friendly` `research` | Search, fetch, and download arXiv papers from the terminal. |
-| **searchkit** | [RanaPriyansh/searchkit](https://github.com/RanaPriyansh/searchkit) | ![](https://img.shields.io/github/stars/RanaPriyansh/searchkit?style=flat-square) | Python | `community` `agent-friendly` `research` | Academic paper discovery and summarization CLI. Search arXiv, PubMed, SSRN; download PDFs; generate summaries. |
-| **s2cli** | [mrshu/s2cli](https://github.com/mrshu/s2cli) | ![](https://img.shields.io/github/stars/mrshu/s2cli?style=flat-square) | Python | `community` `agent-first` `research` | CLI for the Semantic Scholar API. Designed for both human researchers and AI agents. |
-| **PaperHunterAgent** | [madara88645/PaperHunterAgent](https://github.com/madara88645/PaperHunterAgent) | ![](https://img.shields.io/github/stars/madara88645/PaperHunterAgent?style=flat-square) | Python | `community` `agent-first` `research` | Multi-agent CLI. Discovers, summarizes, and visualizes papers from arXiv and Semantic Scholar. |
-| **arxiv-cli** | [lucabeetz/arxiv-cli](https://github.com/lucabeetz/arxiv-cli) | ![](https://img.shields.io/github/stars/lucabeetz/arxiv-cli?style=flat-square) | Rust | `community` `agent-friendly` `research` | Small CLI to search and download arXiv papers. |
+Tools for academic workflows: paper search, LaTeX, literature management, publishing.
 
----
-
-## Email
-
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **himalaya** | [pimalaya/himalaya](https://github.com/pimalaya/himalaya) | ![](https://img.shields.io/github/stars/pimalaya/himalaya?style=flat-square) | Rust | `community` `agent-friendly` `productivity` | CLI for IMAP/SMTP email. List, read, write, reply, forward, search, organize. Multi-account, MML composition. Install: `brew install himalaya` |
-| **Gmail via gws** | [googleworkspace/cli](https://github.com/googleworkspace/cli) | ![](https://img.shields.io/github/stars/googleworkspace/cli?style=flat-square) | Rust | `official` `agent-first` `productivity` | Gmail through Google Workspace CLI: `gws gmail +send`, `+reply`, `+triage`, `+watch`. See Productivity Suites. |
-
----
-
-## Social & Messaging
-
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **xurl** | (OpenClaw built-in) | -- | -- | `community` `agent-friendly` `social` | X/Twitter API v2 CLI. Post tweets, reply, quote, search, DMs, media upload. |
-| **wacli** | (OpenClaw built-in) | -- | -- | `community` `agent-friendly` `messaging` | WhatsApp CLI. Send messages, search/sync history. |
-| **slack-rs** | [tumf/slack-rs](https://github.com/tumf/slack-rs) | ![](https://img.shields.io/github/stars/tumf/slack-rs?style=flat-square) | Rust | `community` `agent-first` `messaging` | Slack CLI with OAuth auth, agentic design principles. |
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [olcli](https://github.com/aloth/olcli) | ![Stars](https://img.shields.io/github/stars/aloth/olcli?style=flat&label=) | `npm i -g @aloth/olcli` | TypeScript | Overleaf CLI. Sync LaTeX projects from the command line — pull projects locally, push changes back, compile PDFs, download `.bbl` files for arXiv submissions. Essential for agent-driven paper writing without the Overleaf web UI. | `research` `latex` `overleaf` `papers` `arxiv` `collaboration` |
+| [papercli](https://github.com/jimezsa/papercli) | ![Stars](https://img.shields.io/github/stars/jimezsa/papercli?style=flat&label=) | `brew install jimezsa/tap/papercli` | Go | Search academic papers across arXiv, Semantic Scholar, and Google Scholar (via SerpApi). Three search modes: fast-search (3-6 papers), pro-search (8-12 papers with cross-paper comparison), deep-search (institutional-grade investigation). Download PDFs, search by author, track seen papers, export to Markdown/CSV/JSON. | `research` `papers` `arxiv` `semantic-scholar` `google-scholar` `search` `literature` |
 
 ---
 
 ## Developer Tools
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **gh** | [cli/cli](https://github.com/cli/cli) | ![](https://img.shields.io/github/stars/cli/cli?style=flat-square) | Go | `official` `agent-friendly` `dev-tools` | GitHub CLI. Issues, PRs, CI/CD, code review, releases, API queries, gists, repos. Install: `brew install gh` |
+Code hosting, CI/CD, version control, and dev infrastructure.
+
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [gh](https://github.com/cli/cli) | ![Stars](https://img.shields.io/github/stars/cli/cli?style=flat&label=) | `brew install gh` | Go | The de facto standard GitHub CLI. Issues, PRs, CI runs, code review, API queries (`gh api`). Massive ecosystem of extensions. Every AI coding agent supports it natively. Structured JSON output via `--json`. | `developer` `github` `issues` `prs` `ci` `code-review` `api` |
+| [xurl](https://github.com/user/xurl) | — | — | — | CLI tool for authenticated requests to the X (Twitter) API v2. Post tweets, reply, quote, search, read posts, manage followers, send DMs, upload media. | `developer` `social-media` `twitter` `api` |
 
 ---
 
-## Browser & Web Automation
+## Social and Networking
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **browser-use** | [browser-use/browser-use](https://github.com/browser-use/browser-use) | ![](https://img.shields.io/github/stars/browser-use/browser-use?style=flat-square) | Python | `community` `agent-first` `browser` | Make websites accessible for AI agents. Automate tasks online. The most popular agent browser library. |
-| **UI-TARS-desktop** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ![](https://img.shields.io/github/stars/bytedance/UI-TARS-desktop?style=flat-square) | TypeScript | `official` `agent-first` `browser` `agent-app` | Open-source multimodal AI agent stack from ByteDance. Connecting AI models and agent infrastructure. |
-| **nanobrowser** | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | ![](https://img.shields.io/github/stars/nanobrowser/nanobrowser?style=flat-square) | TypeScript | `community` `agent-first` `browser` | Chrome extension for AI-powered web automation. Multi-agent workflows with your own LLM API key. |
-| **magentic-ui** | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui) | ![](https://img.shields.io/github/stars/microsoft/magentic-ui?style=flat-square) | Python | `official` `agent-first` `browser` | Human-centered web agent research prototype from Microsoft. |
-| **wiseflow** | [TeamWiseFlow/wiseflow](https://github.com/TeamWiseFlow/wiseflow) | ![](https://img.shields.io/github/stars/TeamWiseFlow/wiseflow?style=flat-square) | JavaScript | `community` `agent-friendly` `browser` | Enhance any agent's browser use skill. |
-| **openbrowser** | [ntegrals/openbrowser](https://github.com/ntegrals/openbrowser) | ![](https://img.shields.io/github/stars/ntegrals/openbrowser?style=flat-square) | TypeScript | `community` `agent-first` `browser` | Autonomous toolkit for browser-based AI agents. |
-| **notte** | [nottelabs/notte](https://github.com/nottelabs/notte) | ![](https://img.shields.io/github/stars/nottelabs/notte?style=flat-square) | Python | `community` `agent-first` `browser` | Framework to build web agents and deploy serverless web automation on reliable browser infra. |
-| **agentql** | [tinyfish-io/agentql](https://github.com/tinyfish-io/agentql) | ![](https://img.shields.io/github/stars/tinyfish-io/agentql?style=flat-square) | Python | `community` `agent-first` `browser` | Suite of tools for connecting AI to the web. Query language and Playwright integrations. |
-| **HyperAgent** | [hyperbrowserai/HyperAgent](https://github.com/hyperbrowserai/HyperAgent) | ![](https://img.shields.io/github/stars/hyperbrowserai/HyperAgent?style=flat-square) | TypeScript | `community` `agent-first` `browser` | AI browser automation. |
-| **browserable** | [browserable/browserable](https://github.com/browserable/browserable) | ![](https://img.shields.io/github/stars/browserable/browserable?style=flat-square) | JavaScript | `community` `agent-first` `browser` | Open source and self-hostable browser automation library for AI agents. |
-| **AIPex** | [AIPexStudio/AIPex](https://github.com/AIPexStudio/AIPex) | ![](https://img.shields.io/github/stars/AIPexStudio/AIPex?style=flat-square) | TypeScript | `community` `agent-first` `browser` | AI browser automation assistant. Privacy first, no migration. |
-| **fara** | [microsoft/fara](https://github.com/microsoft/fara) | ![](https://img.shields.io/github/stars/microsoft/fara?style=flat-square) | Python | `official` `agent-first` `browser` | Fara-7B: efficient agentic model for computer use, from Microsoft. |
-| **mobile-use** | [minitap-ai/mobile-use](https://github.com/minitap-ai/mobile-use) | ![](https://img.shields.io/github/stars/minitap-ai/mobile-use?style=flat-square) | Python | `community` `agent-first` `browser` `agent-app` | AI agents use real Android and iOS apps, just like a human. |
-| **agent-browser-go** | [cpunion/agent-browser-go](https://github.com/cpunion/agent-browser-go) | ![](https://img.shields.io/github/stars/cpunion/agent-browser-go?style=flat-square) | Go | `community` `agent-first` `browser` | Headless browser automation CLI for AI agents. chromedp/playwright backends. |
+CLIs for social platforms and professional networking.
+
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [linkedin-cli](https://github.com/Linked-API/linkedin-cli) | ![Stars](https://img.shields.io/github/stars/Linked-API/linkedin-cli?style=flat&label=) | `npm i -g @linkedapi/linkedin-cli` | TypeScript | Cloud-browser-based LinkedIn automation via Linked API. Fetch profiles, search people/companies, send messages, manage connections, create posts, react, comment. Anti-detection built in (residential IPs, human-like patterns). Multi-account support. Structured JSON output. | `social` `networking` `linkedin` `profiles` `messaging` `job-search` |
+| [OpenCLI social adapters](https://github.com/jackwener/opencli) | ![Stars](https://img.shields.io/github/stars/jackwener/opencli?style=flat&label=) | See OpenCLI above | TypeScript | 65+ site adapters for social platforms. Twitter trending/search/timeline/bookmarks/post, Reddit hot/frontpage/subreddit, Bilibili hot/search/history, Xiaohongshu search/feed/publish, YouTube, and more. Uses Chrome login session. | `social` `twitter` `reddit` `bilibili` `xiaohongshu` `youtube` |
 
 ---
 
-## Agent Applications
+## Communication and Email
 
-Applications and plugins specifically designed for agent integration.
+Messaging, email, and chat CLIs.
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **obsidian-skills** | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | ![](https://img.shields.io/github/stars/kepano/obsidian-skills?style=flat-square) | -- | `official` `agent-first` `agent-app` `knowledge` | Official agent skills for Obsidian. Teach your agent to use Markdown, Bases, JSON Canvas, and the CLI. |
-| **obsidian-agent-client** | [RAIT-09/obsidian-agent-client](https://github.com/RAIT-09/obsidian-agent-client) | ![](https://img.shields.io/github/stars/RAIT-09/obsidian-agent-client?style=flat-square) | TypeScript | `community` `agent-first` `agent-app` `knowledge` | Bring AI agents into Obsidian via Agent Client Protocol (ACP). Supports Claude Code, Codex, Gemini CLI. |
-| **geminese** | [Momoyu404/geminese](https://github.com/Momoyu404/geminese) | ![](https://img.shields.io/github/stars/Momoyu404/geminese?style=flat-square) | TypeScript | `community` `agent-first` `agent-app` `knowledge` | Obsidian plugin that embeds Gemini CLI as AI collaborator in your vault. |
-| **neurostack** | [raphasouthall/neurostack](https://github.com/raphasouthall/neurostack) | ![](https://img.shields.io/github/stars/raphasouthall/neurostack?style=flat-square) | Python | `community` `agent-first` `agent-app` `knowledge` | CLI + MCP server to build, maintain, and search a knowledge vault. Second brain starting today. |
-| **plandex** | [plandex-ai/plandex](https://github.com/plandex-ai/plandex) | ![](https://img.shields.io/github/stars/plandex-ai/plandex?style=flat-square) | Go | `community` `agent-first` `agent-app` `dev-tools` | Open source AI coding agent. Designed for large projects and real world tasks. |
-| **superset** | [superset-sh/superset](https://github.com/superset-sh/superset) | ![](https://img.shields.io/github/stars/superset-sh/superset?style=flat-square) | TypeScript | `community` `agent-first` `agent-app` `dev-tools` | Code editor for the AI agents era. Run an army of Claude Code, Codex, etc. on your machine. |
-| **axe** | [jrswab/axe](https://github.com/jrswab/axe) | ![](https://img.shields.io/github/stars/jrswab/axe?style=flat-square) | Go | `community` `agent-first` `agent-app` | Lightweight CLI for running single-purpose AI agents. Define focused agents in TOML, trigger from anywhere (pipes, git hooks, cron). |
-| **dataclaw-sync** | [UFOyyds/dataclaw-sync](https://github.com/UFOyyds/dataclaw-sync) | ![](https://img.shields.io/github/stars/UFOyyds/dataclaw-sync?style=flat-square) | Python | `community` `agent-friendly` `agent-app` `knowledge` | Incremental export of AI agent conversations to Obsidian notes. Supports Claude Code, OpenCode, Codex, Gemini CLI, OpenClaw. |
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [himalaya](https://github.com/pimalaya/himalaya) | ![Stars](https://img.shields.io/github/stars/pimalaya/himalaya?style=flat&label=) | `brew install himalaya` | Rust | Multi-account IMAP/SMTP email client for the terminal. Compose with MML (MIME Meta Language). List, read, write, reply, forward, search, and organize emails. Privacy-first, local-only. | `email` `imap` `smtp` `multi-account` `mml` |
+| [gws gmail](https://github.com/googleworkspace/cli) | ![Stars](https://img.shields.io/github/stars/googleworkspace/cli?style=flat&label=) | See gws above | Rust | Gmail via Google Workspace CLI. Helper commands: `+send`, `+reply`, `+reply-all`, `+forward`, `+triage` (unread inbox summary), `+watch` (stream new emails as NDJSON). | `email` `gmail` `google` |
+| [lark-cli im](https://github.com/larksuite/cli) | ![Stars](https://img.shields.io/github/stars/larksuite/cli?style=flat&label=) | See lark-cli above | Go | Feishu/Lark instant messaging. Send/reply messages, group chat management, message search, upload/download images and files, reactions. | `messaging` `feishu` `lark` `china` |
 
 ---
 
-## Agent Bridges
+## Note-taking and Knowledge Management
 
-Tools that connect coding agents to messaging platforms.
+CLIs for note-taking apps, knowledge bases, and persistent agent memory.
 
-| Name | Repo | Stars | Language | Tags | Description |
-|------|------|-------|----------|------|-------------|
-| **cc-connect** | [chenhg5/cc-connect](https://github.com/chenhg5/cc-connect) | ![](https://img.shields.io/github/stars/chenhg5/cc-connect?style=flat-square) | Go | `community` `bridge` `messaging` | Bridge coding agents (Claude Code, Cursor, Gemini CLI, Codex) to Feishu/Lark, DingTalk, Slack, Telegram, Discord. |
-| **golembot** | [0xranx/golembot](https://github.com/0xranx/golembot) | ![](https://img.shields.io/github/stars/0xranx/golembot?style=flat-square) | TypeScript | `community` `bridge` `messaging` | Any Agent, Any Provider, Anywhere. Cursor, Claude Code, OpenCode, Codex to Slack, Telegram, Discord, Feishu, DingTalk, WeCom. |
-| **feishu-claude-code** | [joewongjc/feishu-claude-code](https://github.com/joewongjc/feishu-claude-code) | ![](https://img.shields.io/github/stars/joewongjc/feishu-claude-code?style=flat-square) | Python | `community` `bridge` `messaging` | Bridge Claude Code CLI with Feishu/Lark via WebSocket. |
-
----
-
-## Design Patterns
-
-The best agent CLIs share these design principles:
-
-**Output** -- JSON by default + `--format table|csv|ndjson`. `--llm` mode for token-efficient output. NDJSON streaming for paginated results.
-
-**Command Architecture** -- Three-layer pattern (lark-cli, gws): Shortcuts (`+agenda`, `+send`) -> API commands (1:1 with endpoints) -> Raw API (full coverage). Schema introspection for agents to discover parameters.
-
-**Auth** -- Non-blocking auth that returns URL for human to approve. Environment variables as primary method. OS keyring for credential storage.
-
-**Agent Integration** -- Batch operations to minimize tool calls. `--dry-run` for safety. Progressive disclosure with small context docs + on-demand references.
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [notion-cli](https://github.com/4ier/notion-cli) | ![Stars](https://img.shields.io/github/stars/4ier/notion-cli?style=flat&label=) | `brew install 4ier/tap/notion-cli` | Go | Like `gh` for GitHub, but for Notion. 39 commands covering 100% of the Notion API. Manage pages, databases, blocks, comments, users, and files. Supports `--filter`, `--sort`, Markdown I/O (`--md`), auto-detected property types, raw API escape hatch. Single binary. | `notes` `notion` `databases` `pages` `blocks` `markdown` |
+| [beacon](https://github.com/HenriqueSchroeder/beacon) | ![Stars](https://img.shields.io/github/stars/HenriqueSchroeder/beacon?style=flat&label=) | Build from source | Go | Fast, headless CLI for Obsidian vaults on servers. Read, search, and manage vault files without GUI. Designed for AI agent access to Obsidian knowledge bases on headless machines. | `notes` `obsidian` `headless` `vault` `knowledge-base` |
+| [obsidian-vault-cli](https://github.com/fanselau/obsidian-vault-cli) | ![Stars](https://img.shields.io/github/stars/fanselau/obsidian-vault-cli?style=flat&label=) | `npm i -g obsidian-vault-cli` | TypeScript | Headless CLI for reading and writing encrypted Obsidian LiveSync vaults. Built specifically for AI agents. Supports encrypted vaults and LiveSync protocol. | `notes` `obsidian` `headless` `encrypted` `livesync` `agent-native` |
+| [OpenContext](https://github.com/0xranx/OpenContext) | ![Stars](https://img.shields.io/github/stars/0xranx/OpenContext?style=flat&label=) | `npm i -g @aicontextlab/cli` | TypeScript | Personal context store for AI agents. Persistent memory across repos/sessions. CLI + MCP server + Desktop GUI + Web UI. "Load history first, then act; ship, then persist." Slash commands for Cursor, Claude Code, and Codex. Bring your own coding agent. | `knowledge` `memory` `context` `persistence` `cross-repo` `mcp` |
 
 ---
 
-## Gaps & Opportunities
+## Browser Automation for Agents
 
-Services that don't yet have a good agent-friendly CLI:
+Browsers and automation frameworks purpose-built for AI agent control.
 
-| Service | Status |
-|---------|--------|
-| Jira | Community CLIs exist, none agent-optimized |
-| Confluence | No agent CLI |
-| Asana | No known agent CLI |
-| Trello | No agent CLI |
-| Todoist | Has CLI, not agent-designed |
-| Airtable | No agent CLI |
-| Figma | No CLI (API exists) |
-| Zoom | No agent CLI |
-| HuggingFace | huggingface-cli exists, not agent-optimized |
+| Tool | Stars | Install | Lang | Description | Tags |
+|------|-------|---------|------|-------------|------|
+| [agent-browser](https://github.com/vercel-labs/agent-browser) | ![Stars](https://img.shields.io/github/stars/vercel-labs/agent-browser?style=flat&label=) | `npm i -g agent-browser` | Rust | Headless browser automation CLI from Vercel. Native Rust binary. Commands: `open`, `click`, `fill`, `snapshot` (accessibility tree with refs for AI), `screenshot`, `eval`, `find` (by ARIA role/text/label). Ref-based interaction: `agent-browser click @e2`. Downloads Chrome from Chrome for Testing. No Playwright or Node.js runtime needed. | `browser` `automation` `headless` `vercel` `accessibility` `agent-native` |
+| [browser-use](https://github.com/browser-use/browser-use) | ![Stars](https://img.shields.io/github/stars/browser-use/browser-use?style=flat&label=) | `uv add browser-use` | Python | Make websites accessible for AI agents. LLM-driven browser automation with natural language tasks. Open source library + cloud option with stealth/proxy/captcha. 1000+ integrations. Persistent filesystem and memory. Benchmarked on 100 real-world tasks. | `browser` `automation` `llm-driven` `cloud` `stealth` |
+| [stagehand](https://github.com/browserbase/stagehand) | ![Stars](https://img.shields.io/github/stars/browserbase/stagehand?style=flat&label=) | `npx create-browser-app` | TypeScript | AI browser automation framework. Combine natural language (`act()`, `agent()`) with code-level precision. `extract()` returns structured data via Zod schemas. Auto-caching + self-healing: runs without LLM inference on repeat, re-engages AI when pages change. Playwright-based. | `browser` `automation` `framework` `natural-language` `self-healing` `playwright` |
+
+---
+
+## Smart Home and IoT
+
+Control physical devices from the command line.
+
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [openhue](https://github.com/openhue/openhue-cli) | ![Stars](https://img.shields.io/github/stars/openhue/openhue-cli?style=flat&label=) | `brew install openhue` | Go | Control Philips Hue lights and scenes via CLI. Discover bridges, manage lights/rooms/zones, activate scenes, set brightness/color/temperature. | `smart-home` `lights` `hue` `scenes` `iot` |
+
+---
+
+## Coding Agents
+
+Terminal-based AI coding assistants that act as CLI tools themselves.
+
+| CLI | Stars | Install | Lang | Description | Tags |
+|-----|-------|---------|------|-------------|------|
+| [oh-my-pi](https://github.com/can1357/oh-my-pi) | ![Stars](https://img.shields.io/github/stars/can1357/oh-my-pi?style=flat&label=) | `npm i -g @oh-my-pi/pi-coding-agent` | TypeScript | Feature-rich coding agent. Hash-anchored edits, LSP integration (40+ languages), persistent Python IPython kernel, browser tools, subagents, TTSR (zero-context-use rules that inject only when needed), agentic git commits with hunk-level staging, custom skills/hooks. | `coding-agent` `lsp` `python` `browser` `subagents` `skills` |
+| [Claude Code](https://github.com/anthropics/claude-code) | ![Stars](https://img.shields.io/github/stars/anthropics/claude-code?style=flat&label=) | `npm i -g @anthropic-ai/claude-code` | TypeScript | Anthropic's official coding agent for the terminal. File editing, shell commands, search, and multi-turn agentic loops. Supports skills, custom slash commands, hooks, and MCP tools. | `coding-agent` `anthropic` `terminal` `ai` |
+| [Codex](https://github.com/openai/codex) | ![Stars](https://img.shields.io/github/stars/openai/codex?style=flat&label=) | `npm i -g @openai/codex` | TypeScript | OpenAI's coding agent CLI. Sandboxed execution, multi-model support, approval workflows for dangerous operations. | `coding-agent` `openai` `terminal` `ai` |
+| [Gemini CLI](https://github.com/google/gemini-cli) | ![Stars](https://img.shields.io/github/stars/google/gemini-cli?style=flat&label=) | `npm i -g @google/gemini-cli` | TypeScript | Google's coding agent CLI. Gemini model access from the terminal with file context, shell integration, and extension support. | `coding-agent` `google` `terminal` `ai` |
+
+---
+
+## Agent Infrastructure
+
+Runtimes, orchestrators, and platforms that host or coordinate agents.
+
+| Tool | Stars | Install | Lang | Description | Tags |
+|------|-------|---------|------|-------------|------|
+| [OpenClaw](https://github.com/openclaw/openclaw) | ![Stars](https://img.shields.io/github/stars/openclaw/openclaw?style=flat&label=) | `npm i -g openclaw` | TypeScript | Agent runtime and orchestrator. Multi-channel (Discord, Telegram, WhatsApp, Signal, Slack, iMessage). Skills system, sub-agent spawning, ACP harness for coding agents, browser control, memory, heartbeats. | `agent-runtime` `orchestrator` `skills` `multi-channel` `discord` `telegram` `whatsapp` |
+| [Forge](https://github.com/initializ/forge) | ![Stars](https://img.shields.io/github/stars/initializ/forge?style=flat&label=) | — | Go | OpenClaw for Enterprise. Secure, portable AI Agent runtime. Run agents locally, in cloud, or enterprise environments without inbound tunnels. Containerized deployment. | `agent-runtime` `enterprise` `containerized` `secure` |
+| [refly](https://github.com/refly-ai/refly) | ![Stars](https://img.shields.io/github/stars/refly-ai/refly?style=flat&label=) | — | TypeScript | Open-source agent skills builder. Define skills by vibe workflow, run on Claude Code, Cursor, Codex, and more. Build bots for Slack, Lark/Feishu, and other platforms. | `skills-builder` `workflow` `multi-agent` |
+
+---
+
+## Design Patterns Across Agent CLIs
+
+Common architectural patterns observed across agent-native CLIs:
+
+| Pattern | Description | Examples |
+|---------|-------------|----------|
+| Structured JSON Output | Every response is parseable JSON/NDJSON | All workspace CLIs |
+| `--dry-run` | Preview destructive operations | gws, lark-cli, dws |
+| Three-Layer Architecture | Shortcuts, API commands, Raw API | lark-cli, dws |
+| Bundled Skills | SKILL.md files with `npx skills add` | gws, lark-cli, dws |
+| OAuth Device Flow | Headless auth for agents | gws, lark-cli |
+| Auto-Pagination | `--page-all` with NDJSON streaming | gws, lark-cli |
+| Discovery-Driven | Commands built from API specs at runtime | gws, dws |
+| Output Formats | `--format json\|table\|csv\|yaml\|ndjson` | Most CLIs |
+| Identity Switching | `--as user` / `--as bot` | lark-cli |
+| Encrypted Credential Storage | OS keyring or AES-256-GCM at rest | gws, dws |
+| Ref-Based Interaction | Accessibility tree refs for AI (`@e2`) | agent-browser |
+| Self-Healing | Cache actions, re-engage AI when page changes | stagehand |
+
+---
+
+## Tags Reference
+
+| Tag | Meaning |
+|-----|---------|
+| `productivity` | Workspace / office suite |
+| `research` | Academic / scientific workflows |
+| `developer` | Code, CI/CD, version control |
+| `social` | Social media platforms |
+| `networking` | Professional networking |
+| `email` | Email management |
+| `messaging` | Chat / instant messaging |
+| `notes` | Note-taking applications |
+| `knowledge` | Knowledge management / memory |
+| `browser` | Browser automation |
+| `smart-home` | IoT / home automation |
+| `coding-agent` | AI coding assistant |
+| `agent-runtime` | Agent hosting / orchestration |
+| `agent-native` | Purpose-built for AI agents |
+| `meta-cli` | Wraps multiple tools/services |
+| `china` | Primarily serves Chinese market |
+| `mcp` | Uses Model Context Protocol |
+| `hub` | Aggregates other CLIs |
+| `skills-builder` | Creates/manages agent skills |
+| `headless` | Runs without GUI / on servers |
 
 ---
 
 ## Contributing
 
-Know an agent-friendly CLI that is missing? Open a PR.
+Found a CLI that should be listed here? PRs welcome.
 
-**Inclusion criteria:**
-1. Must be a CLI tool or application designed for agent use
-2. Must work well with AI agents (structured output, composable commands)
-3. Must have its own repository link
+### Criteria for inclusion
 
-**Format:** Add a row to the appropriate category table: Name, Repo link, shields.io star badge, Language, Tags, Description.
+1. **CLI-first** — must be usable from the command line (or expose a CLI interface)
+2. **Agent-friendly** — structured output (JSON), or bundled agent skills, or designed for programmatic use
+3. **Maintained** — actively maintained (commits in last 6 months)
+4. **Open source** or has a free tier
 
-Star badge format: `![](https://img.shields.io/github/stars/OWNER/REPO?style=flat-square)`
+### How to contribute
+
+1. Fork this repo
+2. Add your CLI to the appropriate category table
+3. Include: name with repo link, install command, language, description, tags
+4. Submit a PR with a brief description of why it qualifies
 
 ---
 
 ## License
 
-This collection is [CC0 1.0 Universal](LICENSE) -- public domain. Individual tools have their own licenses.
+[MIT](LICENSE)
 
 ---
 
-<p align="center">
-  Curated by <a href="https://github.com/shuyhere">@shuyhere</a>
-</p>
+*Curated by [@shuyhere](https://github.com/shuyhere) — built with the help of AI agents, for AI agents.*
